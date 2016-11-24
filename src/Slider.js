@@ -117,6 +117,16 @@ var Slider = React.createClass({
     onValueChange: PropTypes.func,
 
     /**
+    * Callback to disable any parent scroll views
+    */
+    disableScroll: PropTypes.func,
+
+    /**
+    * Callback to enable any parent scroll views
+    */
+    enableScroll: PropTypes.func,
+
+    /**
      * Callback called when the user starts changing the value (e.g. when
      * the slider is pressed).
      */
