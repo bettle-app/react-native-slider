@@ -308,6 +308,9 @@ var Slider = React.createClass({
 
   _handlePanResponderGrant: function(/*e: Object, gestureState: Object*/) {
     this._previousLeft = this._getThumbLeft(this._getCurrentValue());
+    if(this.props.disableScroll) {
+      this.props.disableScroll();
+    }
     this._fireChangeEvent('onSlidingStart');
   },
   _handlePanResponderMove: function(e: Object, gestureState: Object) {
@@ -325,6 +328,9 @@ var Slider = React.createClass({
   _handlePanResponderEnd: function(e: Object, gestureState: Object) {
     if (this.props.disabled) {
       return;
+    }
+    if(this.props.enableScroll) {
+      this.props.enableScroll();
     }
 
     this._setCurrentValue(this._getValue(gestureState));
